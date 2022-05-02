@@ -1,0 +1,6 @@
+numpy==1.21.6
+pandas==1.4.2
+PyJWT==2.3.0
+requests==2.27.1
+streamlit==1.8.1
+zoomus==1.1.6
