@@ -53,8 +53,6 @@ meetings = get_meetings(client)
 st.write("Sheduled meetings")
 
 if meetings:
-    print(meetings['meetings'])
-    print(len(meetings['meetings']))
     col1, col2, col3 = st.columns(3)
     with col1:
         st.header("Topic")
@@ -65,19 +63,15 @@ if meetings:
         st.header("Link")
 
     for meeting in range(len(meetings['meetings'])):
-        print(meeting)
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            # st.header("Topic")
             st.write(meetings['meetings'][meeting]['topic'])
 
         with col2:
-            # st.header("Start Time")
-            st.write(meetings['meetings'][meeting]['start_time'] +
-                     meetings['meetings'][meeting]['timezone'])
+            st.write(meetings['meetings'][meeting]['start_time'])
+            st.write(meetings['meetings'][meeting]['timezone'])
 
         with col3:
-            # st.header("Link")
             meetings['meetings'][meeting]['join_url']
         # st.write(meetings['meetings'][meeting]['topic'])
