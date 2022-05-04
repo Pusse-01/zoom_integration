@@ -10,8 +10,8 @@ import requests
 class ZOOM_CLIENT():
 
     def __init__(self) -> None:
-        self.API_KEY = 'pnnUcpQSS4-aV1pPrFi9Ng'
-        self.API_SECRET = 'hnZYNbmowkIs039SJE3MKx6umc4p29YxbA6H'
+        self.API_KEY = 'bPOPqXuiTwqm6VouS_5MeA'
+        self.API_SECRET = 'BOiLu93CiMPv3mV3dkopmc07aj16uzgTCMNT'
         self.BASE_URL = 'https://api.zoom.us/v2/'
         self.headers = {
             'authorization': 'Bearer ' + self.__generate_token(),

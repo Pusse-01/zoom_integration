@@ -1,8 +1,6 @@
+from main import ZOOM_CLIENT
 import streamlit as st
 st.set_page_config(layout="wide")
-
-
-from zoom import ZOOM_CLIENT
 
 
 z = ZOOM_CLIENT()
@@ -46,8 +44,9 @@ else:
             date = st.date_input("Start Date")
         with col2:
             time = st.time_input("Start Time")
-        
-        invitees = st.text_input("Meeting Invitees", placeholder="Comma separated list of meeting invitees")
+
+        invitees = st.text_input(
+            "Meeting Invitees", placeholder="Comma separated list of meeting invitees")
         upload = st.form_submit_button("Schedule meeting")
 
         if upload:
