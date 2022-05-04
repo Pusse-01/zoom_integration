@@ -1,4 +1,4 @@
-from main import ZOOM_CLIENT
+from zoom import ZOOM_CLIENT
 import streamlit as st
 st.set_page_config(layout="wide")
 
