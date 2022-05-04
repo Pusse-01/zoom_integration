@@ -3,9 +3,6 @@ from time import time
 import json
 import requests
 
-# JWT_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjZtazllYmpmVEJxUUhRd01Xb05UMFEiLCJleHAiOjE2NTIyODA3OTEsImlhdCI6MTY1MTY3NTk5Mn0.r6_sUlQF974zVMSOU_2JahgMjCaow9WoQog12ZDNOQA'
-# Verification_Token = '2zQMPtltR6SqhJavHaFvzA'
-
 
 class ZOOM_CLIENT():
 
@@ -40,13 +37,13 @@ class ZOOM_CLIENT():
             "agenda": agenda,
             "duration": 30,
             "password": "123456",
-            "schedule_for": "shayeny@kainovation.com",
+            "schedule_for": "meulabs.sl@gmail.com",
             "settings": {
                 "approval_type": 2,
                 "audio": "both",
                 "auto_recording": "cloud",
                 "calendar_type": 2,
-                "contact_email": "shayeny@kainovation.com",
+                "contact_email": "meulabs.sl@gmail.com",
                 "contact_name": "Shayen Yatagama",
                 "email_notification": True,
                 "focus_mode": True,
@@ -70,4 +67,6 @@ class ZOOM_CLIENT():
     def list_meetings(self):
         meetings = requests.get(
             self.BASE_URL + 'users/me/meetings', headers=self.headers)
-        return json.loads(meetings.text)
+        meetings = json.loads(meetings.text)['meetings']
+
+        return [meeting for meeting in meetings if meeting['start_time'].split("-")[1] == '05']

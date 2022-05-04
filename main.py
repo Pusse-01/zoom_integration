@@ -9,18 +9,18 @@ st.title("Virtual KYC on Zoom - POC")
 
 meetings = z.list_meetings()
 
-if meetings['meetings']:
+if meetings:
     st.write("Scheduled Meetings")
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.header("Topic")
+        st.subheader("Topic")
     with col2:
-        st.header("Start Time")
+        st.subheader("Start Time")
     with col3:
-        st.header("Join Link")
+        st.subheader("Join Link")
 
-    for meeting in meetings['meetings']:
+    for meeting in meetings:
         col1, col2, col3 = st.columns(3)
 
         with col1:
@@ -32,7 +32,6 @@ if meetings['meetings']:
 
         with col3:
             st.write(meeting['join_url'])
-            # st.button("JOIN", key=meeting['uuid'], on_click=meeting['join_url'])
 
 else:
     with st.form("Meeting Information", clear_on_submit=True):
